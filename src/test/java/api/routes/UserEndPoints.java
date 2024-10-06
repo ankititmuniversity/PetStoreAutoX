@@ -33,18 +33,14 @@ public class UserEndPoints {
         return response;
     }
 
-    public static Response updateUser(String username, String fname, String lname) {
-        Map<String, String> obj = new HashMap<String, String>();
-        obj.put("firstName", fname);
-        obj.put("lastName", lname);
-
-        Response response = given().relaxedHTTPSValidation()
+    public static Response updateUser(String username, User payload) {
+               Response response = given().relaxedHTTPSValidation()
                                     .pathParam("username", username)
                                     .contentType(ContentType.JSON)
                                     .accept(ContentType.JSON)
-                                    .body(obj)
+                                    .body(payload)
                                     .when()
-                                    .post(Routes.updateUserUrl);
+                                    .put(Routes.updateUserUrl);
         return response;
     }
 

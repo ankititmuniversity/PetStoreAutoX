@@ -21,6 +21,7 @@
                     <include name="deleteUserTest"/>
                 </methods>
             </class>
+            <class name="api.test.UserTests1"/>
         </classes>
     </test>
 </suite>
